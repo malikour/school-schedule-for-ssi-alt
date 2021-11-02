@@ -4,4 +4,4 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 WORKDIR /workdir
 COPY . .
-CMD ["/bin/bash"]
+CMD ["python", "main.py"]
