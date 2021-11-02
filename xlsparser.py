@@ -14,7 +14,7 @@ def make_ics(raw_xls, ignoreUES):
 
     #logger.debug('Parsing XLS')
     # Read the file and only keep the schedule and the location
-    xls = pd.read_excel(raw_xls, usecols="B:H,N,O", engine='openpyxl')
+    xls = pd.read_excel(raw_xls, usecols="B:H,N,O")
 
     for day in range(len(xls)):
         for slot in range(1, 7):
@@ -80,4 +80,4 @@ def make_ics(raw_xls, ignoreUES):
 
 
 if __name__ == '__main__':
-    make_ics('new-edt.xlsx')
+    make_ics('new-edt.xls')

@@ -1,7 +1,7 @@
 # import libraries
 import requests
 from selenium import webdriver
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities 
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from bs4 import BeautifulSoup
 import urllib.request
 import csv
@@ -13,7 +13,7 @@ def scrape_xlsx() :
     driver = webdriver.Remote(command_executor=os.environ.get('COMMAND_EXECUTOR'),
                               desired_capabilities=DesiredCapabilities.CHROME)
     driver.get('https://cas.utt.fr/cas/login?service=https%3A%2F%2Fmoodle.utt.fr%2Flogin%2Findex.php%3FauthCAS%3DCAS')
-    
+
     # Fill the login form
     username = driver.find_element_by_id('username')
     username.send_keys(os.environ.get('ENT_USERNAME'))
@@ -32,8 +32,8 @@ def scrape_xlsx() :
     session = requests.Session()
     for cookie in cookies:
         session.cookies.set(cookie['name'], cookie['value'])
-    
-    #TLS-Error ignore 
+
+    #TLS-Error ignore
     requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
     request = session.get(os.environ.get('RESOURCE_URL'), allow_redirects=True)
 
@@ -42,5 +42,5 @@ def scrape_xlsx() :
 if __name__ == '__main__':
     xlsx = scrape_xlsx()
 
-    with open('new_edt.xlsx', 'wb') as file:
+    with open('new_edt.xls', 'wb') as file:
         file.write(xlsx)
