@@ -10,6 +10,8 @@ services:
       - web
     depends_on:
       - chrome
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
   chrome:
     container_name: chrome
     hostname: chrome
