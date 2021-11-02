@@ -21,6 +21,8 @@ jobs:
         run: pip3 install pipenv
       - name: Install dependencies
         run: pipenv install
+      - name: Start docker network
+        run : docker network create web
       - name: Start remote browser
         run: docker-compose up -d chrome
       - name: Wait browser to be up
