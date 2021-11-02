@@ -1,0 +1,40 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      PIPENV_VENV_IN_PROJECT: enabled
+      COMMAND_EXECUTOR: http://chrome:4444/wd/hub
+      ENT_USERNAME: ${{ secrets.ENT_USERNAME }}
+      ENT_PASSWORD: ${{ secrets.ENT_PASSWORD }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Start docker network
+        run: docker network create web
+      - name: Start remote browser
+        run: docker-compose up chrome -d
+      - name: Wait browser to be up
+        run: until curl -I localhost:4444; do sleep 1; done
+      - name: Scraps and parse
+        run: docker-compose up
+      - name: Stop the browser remote
+        run: docker-compose stop chrome
+      - name: Stash changes
+        run: git stash
+      - name: Pull the repository
+        run: git pull --rebase
+      - name: Pop the stash (ignore if there is nothing to pop)
+        run: git stash pop || true
+      - name: Commit if needed
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'fix: automated update'
+          commit_user_name: GitHub Bot
+          commit_user_email: bot@github.com
