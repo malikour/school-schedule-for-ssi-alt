@@ -13,6 +13,7 @@ jobs:
       COMMAND_EXECUTOR: http://localhost:4444/wd/hub
       ENT_USERNAME: ${{ secrets.ENT_USERNAME }}
       ENT_PASSWORD: ${{ secrets.ENT_PASSWORD }}
+      RESOURCE_UR: ${{ RESOURCE_URL }}
 
     steps:
       - uses: actions/checkout@v2
