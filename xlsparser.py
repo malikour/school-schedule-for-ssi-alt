@@ -56,7 +56,7 @@ def make_ics(raw_xls, ignoreUES):
                 events.append(event)
                 #logger.debug(f'Create primitive event {event.name} - {event.location} [{event.begin}/{event.end}]')
 
-    calendar = Calendar(creator="SSI - https://gitlab.com/MalikOur/school-schedule-for-ssi-alt")
+    calendar = Calendar(creator="SSI")
 
     try:
         i = 0
