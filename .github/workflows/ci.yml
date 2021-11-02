@@ -16,6 +16,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Start docker network
+        run: docker network create web
       - name: Start remote browser
         run: docker-compose up chrome -d
       - name: Wait browser to be up
