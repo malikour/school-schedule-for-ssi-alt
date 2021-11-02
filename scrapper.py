@@ -10,15 +10,15 @@ import os
 #next
 def scrape_xlsx() :
     #emulate a login
-    driver = webdriver.Remote(command_executor=os.environ.get('COMMAND_EXECUTOR'),
+    driver = webdriver.Remote(command_executor=os.environ['COMMAND_EXECUTOR'],
                               desired_capabilities=DesiredCapabilities.CHROME)
     driver.get('https://cas.utt.fr/cas/login?service=https%3A%2F%2Fmoodle.utt.fr%2Flogin%2Findex.php%3FauthCAS%3DCAS')
 
     # Fill the login form
     username = driver.find_element_by_id('username')
-    username.send_keys(os.environ.get('ENT_USERNAME'))
+    username.send_keys(os.environ['ENT_USERNAME'])
     password = driver.find_element_by_id('password')
-    password.send_keys(os.environ.get('ENT_PASSWORD'))
+    password.send_keys(os.environ['ENT_PASSWORD'])
     submit = driver.find_element_by_class_name('btn-submit')
     submit.click()
     driver.set_page_load_timeout(30)
