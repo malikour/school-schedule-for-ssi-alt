@@ -14,7 +14,7 @@ def make_ics(raw_xls, ignoreUES):
 
     #logger.debug('Parsing XLS')
     # Read the file and only keep the schedule and the location
-    xls = pd.read_excel(raw_xls, usecols="B:H,N,O")
+    xls = pd.read_excel(raw_xls, usecols="B:H,N,O", engine='openpyxl')
 
     for day in range(len(xls)):
         for slot in range(1, 7):
