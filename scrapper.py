@@ -42,5 +42,5 @@ def scrape_xlsx() :
 if __name__ == '__main__':
     xlsx = scrape_xlsx()
 
-    with open('new_edt.xls', 'wb') as file:
+    with open('new_edt.xlsx', 'wb') as file:
         file.write(xlsx)

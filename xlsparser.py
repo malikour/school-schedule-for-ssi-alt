@@ -80,4 +80,4 @@ def make_ics(raw_xls, ignoreUES):
 
 
 if __name__ == '__main__':
-    make_ics('new-edt.xls')
+    make_ics('new-edt.xlsx')

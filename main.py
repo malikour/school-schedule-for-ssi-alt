@@ -14,7 +14,7 @@ for module in ['selenium.webdriver.remote.remote_connection', 'selenium', 'urlli
 
 xls = scrapper.scrape_xlsx()
 
-with open('new_edt.xls', 'wb') as file:
+with open('new_edt.xlsx', 'wb') as file:
     file.write(xls)
     UES = 'gs11, gs15, gs21, gs16'
     calendar = xlsparser.make_ics(xls, UES)
