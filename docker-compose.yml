@@ -1,0 +1,22 @@
+version: '3.9'
+networks:
+  web:
+    external: true
+    driver:  bridge
+services:
+  app:
+    build: .
+    networks:
+      - web
+    depends_on:
+      - chrome
+  chrome:
+    container_name: chrome
+    hostname: chrome
+    image: selenium/standalone-chrome:93.0
+    shm_size: '2gb'
+    privileged: true
+    ports:
+      - '4444:4444'
+    networks:
+      - web
