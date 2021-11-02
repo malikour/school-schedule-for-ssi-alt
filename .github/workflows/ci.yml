@@ -19,7 +19,7 @@ jobs:
       - name: Start docker network
         run: docker network create web
       - name: Start remote browser
-        run: docker-compose up chrome -d
+        run: docker-compose up -d chrome
       - name: Wait browser to be up
         run: until curl -I localhost:4444; do sleep 1; done
       - name: Scraps and parse
