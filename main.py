@@ -17,8 +17,10 @@ xls = scrapper.scrape_xlsx()
 with open('new_edt.xlsx', 'wb') as file:
     file.write(xls)
     UES = 'gs11, gs15, gs21, gs16'
-    calendar = xlsparser.make_ics(xls, UES)
+   # calendar = xlsparser.make_ics(xls, UES)
+    calendar = ""
     name = 'alt'
+    print ("Y")
 
     with open(f'calendars/ssi-{name}.ics', 'w') as file:
         logger.info(f'Write on calendars/{name}.ics')
