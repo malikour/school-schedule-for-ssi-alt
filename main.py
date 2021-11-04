@@ -17,8 +17,7 @@ xls = scrapper.scrape_xlsx()
 with open('new_edt.xlsx', 'wb') as file:
     file.write(xls)
     UES = 'gs11, gs15, gs21, gs16'
-   # calendar = xlsparser.make_ics(xls, UES)
-    calendar = ""
+    calendar = xlsparser.make_ics(xls, UES)
     name = 'alt'
     print ("Y")
 

@@ -10,6 +10,8 @@ import os
 #next
 def scrape_xlsx() :
     #emulate a login
+    if(os.environ.get('COMMAND_EXECUTOR') is None):
+        exit(-2)
     driver = webdriver.Remote(command_executor=os.environ['COMMAND_EXECUTOR'],
                               desired_capabilities=DesiredCapabilities.CHROME)
     driver.get('https://cas.utt.fr/cas/login?service=https%3A%2F%2Fmoodle.utt.fr%2Flogin%2Findex.php%3FauthCAS%3DCAS')
