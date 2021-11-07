@@ -12,15 +12,14 @@ logger.basicConfig(format='%(levelname)s %(module)s %(message)s', level=logger.D
 for module in ['selenium.webdriver.remote.remote_connection', 'selenium', 'urllib3.connectionpool']:
     logger.getLogger(module).setLevel(logger.INFO)
 
-xls = scrapper.scrape_xlsx()
+xlsx = scrapper.scrape_xlsx()
 
 with open('new_edt.xlsx', 'wb') as file:
-    file.write(xls)
-    UES = 'gs11, gs15, gs21, gs16'
-    calendar = xlsparser.make_ics(xls, UES)
-    name = 'alt'
-    print ("Y")
+    file.write(xlsx)
 
-    with open(f'calendars/ssi-{name}.ics', 'w') as file:
-        logger.info(f'Write on calendars/{name}.ics')
-        file.write(calendar)
+UES = 'gs11, gs15, gs21, gs16'
+calendar = xlsparser.make_ics(xlsx, UES)
+name = 'alt'
+with open(f'calendars/ssi-{name}.ics', 'w') as file:
+    logger.info(f'Write on calendars/{name}.ics')
+    file.write(calendar)

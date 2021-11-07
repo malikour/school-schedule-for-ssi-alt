@@ -37,9 +37,15 @@ def scrape_xlsx() :
 
     #TLS-Error ignore
     requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
-    request = session.get(os.environ.get('RESOURCE_URL'), allow_redirects=True)
+    response = session.get('https://moodle.utt.fr/course/view.php?id=1631', allow_redirects=True)
+    # Find the link attributed to the schedule
+    soup = BeautifulSoup(response.text, 'html.parser')
+    link = soup.find(text="Emploi du temps M2 SSI").parent.parent['href']
 
-    return request.content
+
+    # Retrieve the file content
+    response = session.get(f'{link}&redirect=1', allow_redirects=True)
+    return response.content
 
 if __name__ == '__main__':
     xlsx = scrape_xlsx()

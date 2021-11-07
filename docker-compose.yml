@@ -6,6 +6,8 @@ networks:
 services:
   app:
     build: .
+    volumes:
+      - ./calendars:/code/calendars
     networks:
       - web
     depends_on:
