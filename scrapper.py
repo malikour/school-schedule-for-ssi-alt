@@ -10,6 +10,7 @@ import os
 #next
 def scrape_xlsx() :
     #emulate a login
+    print(os.environ['ENT_USERNAME'])
     if(os.environ.get('COMMAND_EXECUTOR') is None):
         exit(-2)
     driver = webdriver.Remote(command_executor=os.environ['COMMAND_EXECUTOR'],
