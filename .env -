@@ -1,0 +1,6 @@
+COMMAND_EXECUTOR=http://chrome:4444/wd/hub
+
+ENT_USERNAME=
+ENT_PASSWORD=
+
+RESOURCE_URL=https://moodle.utt.fr/pluginfile.php/519885/mod_resource/content/1/EduTemps21.xlsx
