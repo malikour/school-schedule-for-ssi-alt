@@ -10,18 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PIPENV_VENV_IN_PROJECT: enabled
-      COMMAND_EXECUTOR: http://localhost:4444/wd/hub
+      COMMAND_EXECUTOR: http://chrome:4444/wd/hub
       ENT_USERNAME: ${{ secrets.ENT_USERNAME }}
       ENT_PASSWORD: ${{ secrets.ENT_PASSWORD }}
-      RESOURCE_URL: ${{ secrets.RESOURCE_URL }}
 
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-      - name: Install pipenv
-        run: pip3 install pipenv
-      - name: Install dependencies
-        run: pipenv install
       - name: Start docker network
         run : docker network create web
       - name: Start remote browser
@@ -29,7 +24,7 @@ jobs:
       - name: Wait browser to be up
         run: until curl -I localhost:4444; do sleep 1; done
       - name: Scraps and parse
-        run: pipenv run python main.py
+        run: docker-compose up
       - name: Stop the browser remote
         run: docker-compose down
       - name: Stash changes
