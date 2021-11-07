@@ -24,7 +24,7 @@ jobs:
       - name: Wait browser to be up
         run: until curl -I localhost:4444; do sleep 1; done
       - name: Scraps and parse
-        run: docker-compose up –abort-on-container-exit
+        run: docker-compose up --abort-on-container-exit
       - name: Stash changes
         run: git stash
       - name: Pull the repository
