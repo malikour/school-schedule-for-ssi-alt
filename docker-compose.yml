@@ -6,7 +6,7 @@ networks:
 services:
   app:
     environment:
-      - COMMAND_EXECUTOR=http://localhost:4444/wd/hub
+      - COMMAND_EXECUTOR=http://chrome:4444/wd/hub
       - ENT_USERNAME=${ENT_USERNAME}
       - ENT_PASSWORD=${ENT_PASSWORD}
     build: .
