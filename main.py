@@ -11,7 +11,6 @@ logger.basicConfig(format='%(levelname)s %(module)s %(message)s', level=logger.D
 # Change logging level for some verbose modules
 for module in ['selenium.webdriver.remote.remote_connection', 'selenium', 'urllib3.connectionpool']:
     logger.getLogger(module).setLevel(logger.INFO)
-
 xlsx = scrapper.scrape_xlsx()
 
 with open('new_edt.xlsx', 'wb') as file:

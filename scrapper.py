@@ -6,11 +6,11 @@ from bs4 import BeautifulSoup
 import urllib.request
 import csv
 import os
-
+import time
 #next
 def scrape_xlsx() :
     #emulate a login
-    print(os.environ['ENT_USERNAME'])
+    time.sleep(1)
     if(os.environ.get('COMMAND_EXECUTOR') is None):
         exit(-2)
     driver = webdriver.Remote(command_executor=os.environ['COMMAND_EXECUTOR'],
