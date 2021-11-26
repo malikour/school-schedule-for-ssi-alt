@@ -20,7 +20,7 @@ jobs:
       - name: Start docker network
         run : docker network create web
       - name: Scraps and parse
-        run: docker-compose up
+        run: docker compose up --abort-on-container-exit
       - name: Stash changes
         run: git stash
       - name: Pull the repository
