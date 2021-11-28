@@ -11,6 +11,7 @@ import time
 def scrape_xlsx() :
     #emulate a login
     time.sleep(3)
+    print("ENV : " + os.environ['COMMAND_EXECUTOR'])
     if(os.environ.get('COMMAND_EXECUTOR') is None):
         exit(-2)
     driver = webdriver.Remote(command_executor=os.environ['COMMAND_EXECUTOR'],
