@@ -64,10 +64,10 @@ jobs:
         # push it to ECR so that it can
         # be deployed to ECS.
         docker build --build-arg ENT_USERNAME="${{ secrets.ENT_USERNAME }}" \ 
-          --build-arg ENT_PASSWORD="${{ secrets.ENT_PASSWORD }}" \
-          --build-arg COMMAND_EXECUTOR="${{ secrets.COMMAND_EXECUTOR }}" \ 
-          --build-arg RESOURCE_URL="${{ secrets.RESOURCE_URL }}" \
-          -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+            --build-arg ENT_PASSWORD="${{ secrets.ENT_PASSWORD }}" \
+            --build-arg COMMAND_EXECUTOR="${{ secrets.COMMAND_EXECUTOR }}" \ 
+            --build-arg RESOURCE_URL="${{ secrets.RESOURCE_URL }}" \
+            -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
         
