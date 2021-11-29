@@ -69,7 +69,7 @@
       "memoryReservation": 300,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "947517544674.dkr.ecr.eu-west-3.amazonaws.com/my-schedule:c20cda1dd9f9d6445d4721bedff65ec47e26e2f3",
+      "image": "947517544674.dkr.ecr.eu-west-3.amazonaws.com/my-schedule:47ba72d7ca2fa67169648c7476261fd3655d204a",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": [
@@ -97,13 +97,13 @@
     }
   ],
   "placementConstraints": [],
-  "memory": null,
+  "memory": "512",
   "taskRoleArn": "arn:aws:iam::947517544674:role/ecsTaskExecutionRole",
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:947517544674:task-definition/lesgo:6",
+  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:947517544674:task-definition/lesgo:10",
   "family": "lesgo",
   "requiresAttributes": [
     {
@@ -161,8 +161,8 @@
   ],
   "networkMode": "host",
   "runtimePlatform": null,
-  "cpu": null,
-  "revision": 6,
+  "cpu": "1024",
+  "revision": 10,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
