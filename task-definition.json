@@ -69,22 +69,15 @@
       "memoryReservation": 300,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "947517544674.dkr.ecr.eu-west-3.amazonaws.com/my-schedule:47ba72d7ca2fa67169648c7476261fd3655d204a",
+      "image": "947517544674.dkr.ecr.eu-west-3.amazonaws.com/my-schedule:a636b7e5459d8a79117b6629c2f60245c318e7b3",
       "startTimeout": null,
       "firelensConfiguration": null,
-      "dependsOn": [
-        {
-          "containerName": "chrome",
-          "condition": "START"
-        }
-      ],
+      "dependsOn": null,
       "disableNetworking": null,
       "interactive": null,
       "healthCheck": null,
       "essential": true,
-      "links": [
-        "chrome:4444"
-      ],
+      "links": [],
       "hostname": null,
       "extraHosts": null,
       "pseudoTerminal": null,
@@ -92,7 +85,7 @@
       "readonlyRootFilesystem": false,
       "dockerLabels": null,
       "systemControls": null,
-      "privileged": null,
+      "privileged": true,
       "name": "my-schedule"
     }
   ],
@@ -103,7 +96,7 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:947517544674:task-definition/lesgo:10",
+  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:947517544674:task-definition/lesgo:13",
   "family": "lesgo",
   "requiresAttributes": [
     {
@@ -117,6 +110,12 @@
       "targetType": null,
       "value": null,
       "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.privileged-container"
     },
     {
       "targetId": null,
@@ -140,12 +139,6 @@
       "targetId": null,
       "targetType": null,
       "value": null,
-      "name": "ecs.capability.container-ordering"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
       "name": "ecs.capability.execution-role-ecr-pull"
     },
     {
@@ -162,7 +155,7 @@
   "networkMode": "host",
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 10,
+  "revision": 13,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
