@@ -16,7 +16,7 @@
       ],
       "command": null,
       "linuxParameters": null,
-      "cpu": 0,
+      "cpu": 1,
       "environment": [],
       "resourceRequirements": null,
       "ulimits": null,
@@ -54,9 +54,9 @@
       "logConfiguration": null,
       "entryPoint": null,
       "portMappings": [],
-      "command": [],
+      "command": null,
       "linuxParameters": null,
-      "cpu": 0,
+      "cpu": 1,
       "environment": [],
       "resourceRequirements": null,
       "ulimits": null,
@@ -66,16 +66,16 @@
       "secrets": null,
       "dockerSecurityOptions": null,
       "memory": null,
-      "memoryReservation": 128,
+      "memoryReservation": 300,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "947517544674.dkr.ecr.eu-west-3.amazonaws.com/my-schedule",
+      "image": "947517544674.dkr.ecr.eu-west-3.amazonaws.com/my-schedule:c20cda1dd9f9d6445d4721bedff65ec47e26e2f3",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": [
         {
           "containerName": "chrome",
-          "condition": "SUCCESS"
+          "condition": "START"
         }
       ],
       "disableNetworking": null,
@@ -97,13 +97,13 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "512",
+  "memory": null,
   "taskRoleArn": "arn:aws:iam::947517544674:role/ecsTaskExecutionRole",
   "compatibilities": [
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:947517544674:task-definition/lesgo:1",
+  "taskDefinitionArn": "arn:aws:ecs:eu-west-3:947517544674:task-definition/lesgo:6",
   "family": "lesgo",
   "requiresAttributes": [
     {
@@ -161,8 +161,8 @@
   ],
   "networkMode": "host",
   "runtimePlatform": null,
-  "cpu": "1024",
-  "revision": 1,
+  "cpu": null,
+  "revision": 6,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
