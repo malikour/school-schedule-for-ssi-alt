@@ -3,6 +3,7 @@ import scrapper
 import logging as logger
 from os import rename
 import os
+import time
 from dotenv import load_dotenv
 print("test")
 load_dotenv()
@@ -22,3 +23,4 @@ name = 'alt'
 with open(f'calendars/ssi-{name}.ics', 'w') as file:
     logger.info(f'Write on calendars/{name}.ics')
     file.write(calendar)
+    time.sleep(1000)
